@@ -9,7 +9,7 @@ function App() {
   const CalculateFlames = (e) => {
     e.preventDefault();
     if (firstName === "" || secondName === "") {
-      alert("Please Enter valid inputs");
+      setResult("Please Enter valid inputs");
       return;
     }
     const str1 = firstName.toLocaleLowerCase().trim();
