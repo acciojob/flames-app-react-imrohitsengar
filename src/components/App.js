@@ -14,15 +14,31 @@ function App() {
     }
     const str1 = firstName.toLocaleLowerCase().trim();
     const str2 = secondName.toLocaleLowerCase().trim();
+
+    // Remove common characters one occurrence at a time
+    let arr1 = str1.split("");
+    let arr2 = str2.split("");
+
+    for (let i = 0; i < arr1.length; i++) {
+      const matchIndex = arr2.indexOf(arr1[i]);
+      if (matchIndex !== -1) {
+        arr1[i] = null;
+        arr2[matchIndex] = null;
+      }
+    }
+
+    const remaining1 = arr1.filter((c) => c !== null);
+    const remaining2 = arr2.filter((c) => c !== null);
+    const m = remaining1.length + remaining2.length;
+
     let flames = [
-      "Sibling",
       "Friends",
       "Love",
       "Affection",
       "Marriage",
       "Enemy",
+      "Sibling",
     ];
-    const m = str1.length + str2.length;
     const index = m % 6;
     setResult(flames[index]);
   };
