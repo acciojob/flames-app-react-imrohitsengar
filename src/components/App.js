@@ -34,13 +34,22 @@ function App() {
           type="text"
           placeholder="Enter first name"
           onChange={(e) => setFirstName(e.target.value)}
+          data-testid="input1"
+          name="name1"
         />
         <input
           type="text"
           placeholder="Enter second name"
           onChange={(e) => setSecondName(e.target.value)}
+          data-testid="input2"
+          name="name2"
         />
-        <button type="submit" onClick={CalculateFlames}>
+        <button
+          type="submit"
+          onClick={CalculateFlames}
+          data-testid="calculate_relationship"
+          name="calculate_relationship"
+        >
           Calculate Relationship Future
         </button>
         <button
@@ -50,11 +59,13 @@ function App() {
             setSecondName("");
             setResult("");
           }}
+          data-testid="clear"
+          name="clear"
         >
           Clear
         </button>
       </form>
-      <div>{result}</div>
+      <h3 data-testid="answer">{result}</h3>
     </div>
   );
 }
